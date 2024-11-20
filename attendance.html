@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Records</title>
+</head>
+<body>
+    <h1>Attendance Records</h1>
+    <form method="post">
+        <label for="date">Date:</label>
+        <input type="text" id="date" name="date" placeholder="YYYY-MM-DD">
+        <label for="student_name">Student Name:</label>
+        <input type="text" id="student_name" name="student_name" placeholder="Student Name">
+        <label for="class_section">Class Section:</label>
+        <input type="text" id="class_section" name="class_section" placeholder="Class Section">
+        <button type="submit">Filter</button>
+    </form>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Student Name</th>
+            <th>Class Section</th>
+            <th>Status</th>
+        </tr>
+        {% for record in attendance_data %}
+        <tr>
+            <td>{{ record['date'] }}</td>
+            <td>{{ record['student_name'] }}</td>
+            <td>{{ record['class_section'] }}</td>
+            <td>{{ record['status'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
